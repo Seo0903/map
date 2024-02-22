@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
+from tkinter import simpledialog
+import subprocess
 
 class Application(tk.Frame):
     def __init__(self, master=None):
@@ -78,14 +80,22 @@ class Application(tk.Frame):
             self.log(f"Selected Output Directory: {self.output_directory}\n")
 
     def select_sound_ratio(self):
-        self.sud = tk.simpledialog.askstring("Input", "소리 비율 조절 (2~2.5 추천, 소숫점 가능):",
+        self.sud = simpledialog.askstring("Input", "소리 비율 조절 (2~2.5 추천, 소숫점 가능):",
                                              parent=self.master)
         self.log(f"Selected Sound Ratio: {self.sud}\n")
 
     def select_sound_range1(self):
-        self.range1 = tk.simpledialog.askstring("Input","최소 1이상",parent=self.master)
+        self.range1 = simpledialog.askstring("Input","최소 1이상",parent=self.master)
         self.log(f"Selected 최소 범위: {self.range1}\n")
 
     def select_sound_range2(self):
-        self.range2 = tk.simpledialog.askstring("Input","최소값 보단 높게 할 것, 최대 범위를 원하면 (M/m)을 입력",parent=self.master)
+        self.range2 = simpledialog.askstring("Input","최소값 보단 높게 할 것, 최대 범위를 원하면 (M/m)을 입력",parent=self.master)
         self.log(f"Selected 최대 범위: {self.range2}\n")
+    
+    def start_process_func(self):
+        try:
+            from youtubeDLP import start_process_func as youtube_start_process_func
+            youtube_start_process_func()
+        except Exception as e:
+            self.log(f"Error occurred while running youtubeDLP.py: {e}\n")
+

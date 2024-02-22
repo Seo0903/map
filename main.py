@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     ui_values = app.get_values()
 
-    # SoundController 클래스의 인스턴스 생성
+    # SoundDownloader 클래스의 인스턴스 생성
     sound_downloader = SoundDownloader()
     sound_downloader.process_values(ui_values)
     sound_downloader.start_process_func()
@@ -43,7 +43,7 @@ if __name__ == "__main__":
     output_directory = sound_downloader.output_directory
 
     # output_directory의 파일들 불러오기
-    loaded_files = soundController.load_files_from_directory(output_directory)
+    loaded_files = SoundDownloader.load_files_from_directory(output_directory)
 
     if loaded_files:
         print("Files in the directory:")

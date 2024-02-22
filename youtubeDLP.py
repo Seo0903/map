@@ -23,7 +23,7 @@ class SoundDownloader():
         if self.output_directory is None:
             print("No output directory selected. Please select an output directory.\n")
             return
-        current_directory = os.path.dirname(__file__)
+        current_directory = os.getcwd()
         exfile = pd.read_excel(self.efn, sheet_name='Sheet1')
         if (self.range2 == 'M' or self.range2 == 'm'):
             colnum = exfile['링크'].count()
