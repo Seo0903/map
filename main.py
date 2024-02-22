@@ -1,6 +1,5 @@
 import UI
 from youtubeDLP import SoundDownloader
-import soundController
 import tkinter as tk
 
 if __name__ == "__main__":   
