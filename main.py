@@ -18,7 +18,6 @@ if __name__ == "__main__":
         subprocess.check_call([sys.executable,'-m', 'pip', 'install', '--upgrade', 'pip'], shell=True)
         # 에러 발생한 모듈 설치
         subprocess.check_call([sys.executable,'-m', 'pip', 'install', '--upgrade', 'pandas'], shell=True)
-        # 다시 import
         import sys
         import subprocess
         import tkinter
@@ -51,4 +50,4 @@ if __name__ == "__main__":
         for file_path in loaded_files:
             print(file_path)
     else:
-        print("No files loaded.")
+        print("No files loaded!")
