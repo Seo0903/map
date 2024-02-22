@@ -1,9 +1,34 @@
-import tkinter as tk
 import UI
 from youtubeDLP import SoundDownloader
 import soundController
+import tkinter as tk
 
-if __name__ == "__main__":
+if __name__ == "__main__":   
+    try:
+        import sys
+        import subprocess
+        import tkinter
+        import os
+        import pydub
+        import openpyxl
+        import pandas
+        import yt_dlp
+    except Exception:
+        # pip 모듈 업그레이드
+        subprocess.check_call([sys.executable,'-m', 'pip', 'install', '--upgrade', 'pip'], shell=True)
+        # 에러 발생한 모듈 설치
+        subprocess.check_call([sys.executable,'-m', 'pip', 'install', '--upgrade', 'pandas'], shell=True)
+        # 다시 import
+        import sys
+        import subprocess
+        import tkinter
+        import os
+        import pydub
+        import openpyxl
+        import pandas
+        import yt_dlp
+
+
     root = tk.Tk()
     app = UI.Application(master=root)
     app.mainloop()
