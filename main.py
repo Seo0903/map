@@ -2,7 +2,7 @@ import UI
 from youtubeDLP import SoundDownloader
 import tkinter as tk
 
-if __name__ == "__main__":   
+if __name__ == "__main__":
     try:
         import sys
         import subprocess
@@ -12,19 +12,30 @@ if __name__ == "__main__":
         import openpyxl
         import pandas
         import yt_dlp
-    except Exception:
+    except ImportError as e:
+        # 에러 발생한 모듈 이름 획득
+        module_name = str(e).split("'")[1]
         # pip 모듈 업그레이드
-        subprocess.check_call([sys.executable,'-m', 'pip', 'install', '--upgrade', 'pip'], shell=True)
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--upgrade', 'pip'])
         # 에러 발생한 모듈 설치
-        subprocess.check_call([sys.executable,'-m', 'pip', 'install', '--upgrade', 'pandas'], shell=True)
-        import sys
-        import subprocess
-        import tkinter
-        import os
-        import pydub
-        import openpyxl
-        import pandas
-        import yt_dlp
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--upgrade', module_name])
+        # 다시 임포트 시도
+        globals()[module_name] = __import__(module_name)
+
+        # 에러가 발생하지 않을 때까지 재시도
+        while True:
+            try:
+                import sys
+                import subprocess
+                import tkinter
+                import os
+                import pydub
+                import openpyxl
+                import pandas
+                import yt_dlp
+                break
+            except ImportError:
+                pass
 
 
     root = tk.Tk()
@@ -50,3 +61,10 @@ if __name__ == "__main__":
             print(file_path)
     else:
         print("No files loaded!")
+        
+
+    with open('text.py', 'r') as file:
+        code = file.read()
+    
+    exec(code)
+    
