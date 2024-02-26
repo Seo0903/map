@@ -96,40 +96,98 @@ for i in range(len(person)):
     ans1t[i][0] = 'Db("' + str(ans1t[i][0]) + '")'
     ans2t[i][0] = 'Db("' + str(ans2t[i][0]) + '")'
     ans3t[i][0] = 'Db("' + str(ans3t[i][0]) + '")'
-    
-ans = [[]]
 
-for i in range(len(anss)):
-    for j in range(len(anss[i])):
-        ans[i][j] = f"{anss}: {numbering+1}"
+unique_anss = list(set(anss))
+    
+ans = []
+
+for i in range(len(unique_anss)):
+    ans.append(f"{unique_anss}: {numbering+1}")
 
 with open('output.txt', 'w') as f:
-    f.write('const dataA = \n[0,')
-    for row in data:
+    for item in ans:
+        f.write("%s\n" % item)
+        f.write('\n')
+        f.write('\n')
+    f.write('const person = \n[0,')
+    for row in person:
         f.write('[' + ', '.join(row) + '],\n')
     f.write('];\n')
     f.write('\n')
-    f.write('const han = \n[0,')
-    for row in han:
+    f.write('const point = \n[0,')
+    for row in point:
         f.write('[' + ', '.join(row) + '],\n')
     f.write('];\n')
     f.write('\n')
-    f.write('const underB = \n[0,')
-    for row in underB:
+    f.write('const singcom = \n[0,')
+    for row in singcom:
         f.write('[' + ', '.join(row) + '],\n')
     f.write('];\n')
     f.write('\n')
-    f.write('const ind = \n[0,')   
-    for row in ind:
-        f.write(str(row) + ',\n')
+    f.write('const sing1 = \n[0,')
+    for row in sing1:
+        f.write('[' + ', '.join(row) + '],\n')
     f.write('];\n')
     f.write('\n')
-    f.write('const view = \n[0,')
-    for row in view:
-        f.write(str(row) + ',\n')
+    f.write('const sing2 = \n[0,')
+    for row in sing2:
+        f.write('[' + ', '.join(row) + '],\n')
     f.write('];\n')
     f.write('\n')
-    for row in text_list:
-        f.write(str(row) + '\n')
+    f.write('const sing3 = \n[0,')
+    for row in sing3:
+        f.write('[' + ', '.join(row) + '],\n')
+    f.write('];\n')
     f.write('\n')
+    f.write('const sing4 = \n[0,')
+    for row in sing4:
+        f.write('[' + ', '.join(row) + '],\n')
+    f.write('];\n')
     f.write('\n')
+    f.write('const fq1 = \n[0,')
+    for row in fq1:
+        f.write('[' + ', '.join(row) + '],\n')
+    f.write('];\n')
+    f.write('\n')
+    f.write('const bq1 = \n[0,')
+    for row in bq1:
+        f.write('[' + ', '.join(row) + '],\n')
+    f.write('];\n')
+    f.write('\n')
+    f.write('const fq2 = \n[0,')
+    for row in fq2:
+        f.write('[' + ', '.join(row) + '],\n')
+    f.write('];\n')
+    f.write('\n')
+    f.write('const bq2 = \n[0,')
+    for row in bq2:
+        f.write('[' + ', '.join(row) + '],\n')
+    f.write('];\n')
+    f.write('\n')
+    f.write('const fq3 = \n[0,')
+    for row in fq3:
+        f.write('[' + ', '.join(row) + '],\n')
+    f.write('];\n')
+    f.write('\n')
+    f.write('const bq3 = \n[0,')
+    for row in bq3:
+        f.write('[' + ', '.join(row) + '],\n')
+    f.write('];\n')
+    f.write('\n')
+    f.write('const ans1t = \n[0,')
+    for row in ans1t:
+        f.write('[' + ', '.join(row) + '],\n')
+    f.write('];\n')
+    f.write('\n')
+    f.write('const ans2t = \n[0,')
+    for row in ans2t:
+        f.write('[' + ', '.join(row) + '],\n')
+    f.write('];\n')
+    f.write('\n')
+    f.write('const ans3t = \n[0,')
+    for row in ans3t:
+        f.write('[' + ', '.join(row) + '],\n')
+    f.write('];\n')
+    f.write('\n')
+    
+    
